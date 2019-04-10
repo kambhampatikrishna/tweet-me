@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% include "tweets/search_form.html" %}</br>
+    {% for result in object_list %}
+        {{ result}} </br>
+        {{ result.timestamp | timesince }}</br>
+    {% empty %}
+        {% if request.GET.q %}
+            <p>No Tweets Found</p></br>
+        {% else %}
+            <p>No Tweets Yet.</p></br>
+        {% endif %}
+    {% endfor %}
+{% endblock content %}

@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    {% include "tweets/form.html" with form=form btn_title='Update' %}
+{% endblock content %}
+
+    <!-- {%include "tweets/form.html" with form=form btn_title='Tweet' %} -->
+<!-- {% for result in object %}
+    {{ result}} </br>
+    {{result.timestamp }} </br>
+{% endfor %}  -->
+

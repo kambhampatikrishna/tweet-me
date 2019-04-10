@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block content %}
+    
+    <div class="row">
+
+        <div class="col-sm-3 col-xs-12" style='background-color: red;'>
+                <h1>{{  request.user }}</h1>
+        </div> 
+        <div class="col-sm-9">
+            {% if not request.GET.q %}
+                <div class="">
+                        {%include "tweets/form.html" with form=create_form action_url=create_url form_class='tweet-form' btn_title='Tweet' %}
+                </div>
+                
+            {% endif %}
+            <hr/>
+            <div class="col-sm-9">
+                    <div id="tweet-container" data-url='/api/tweet/'>
+                        
+                        </div>
+                    
+                       <a href='#' id='loadmore'>LoadMore Tweets</a>  
+            
+        </div>
+    
+        </div>
+    </div>
+{% endblock content %}
+<style>
+
+#tweet-container{
+
+}
+
+</style>
+{% block script %}
+<script>
+ 
+    $(document).ready(function(){
+     loadTweetContainer("tweet-container")
+
+});
+</script>
+
+
+{% endblock script %}
